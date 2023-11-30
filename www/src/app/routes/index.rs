@@ -40,12 +40,12 @@ pub fn Hero() -> impl IntoView {
         </h1>
         <p class="mt-6 text-xl text-ctp-text max-w-3xl">
             This is a wasm site that publishes solution generators based on{" "}
-            <a class="text-red-400" href="https://github.com/ChristopherBiscardi/advent-of-code/tree/main/2023/rust">
+            <a class="text-red-400" href="https://github.com/sanjib-sen/advent-of-code">
               Rust
             </a>. This site is built with Leptos and Wasm.
         </p>
         <p class="mt-6 text-xl text-ctp-text max-w-3xl">
-        <a class="text-ctp-blue" href="https://github.com/ChristopherBiscardi/advent-of-code/tree/main/2023/rust">GitHub Repo</a>
+        <a class="text-ctp-blue" href="https://github.com/sanjib-sen/advent-of-code">GitHub Repo</a>
         </p>
         </div>
 
