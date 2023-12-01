@@ -1,8 +1,8 @@
 use crate::custom_error::AocError;
 
 #[tracing::instrument]
-pub fn process(_input: &str) -> miette::Result<String, AocError> {
-    Ok(String::from(_input))
+pub fn process(input: &str) -> miette::Result<String, AocError> {
+    Ok(String::from(input))
 }
 
 #[cfg(test)]
