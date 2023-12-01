@@ -14,7 +14,10 @@ fn main() -> miette::Result<()> {
     tracing_subscriber::fmt::init();
 
     let file = include_str!("../../input1.txt");
-    let result = process(file).context("process part 1")?;
-    println!("{}", result);
+    let input = process(file).context("process part 1")?.trim().to_string();
+    let total_floors: i16 = input.len().try_into().unwrap();
+    let went_up_count: i16 = input.matches("(").count().try_into().unwrap();
+    let went_down_count = total_floors - went_up_count;
+    println!("{}", went_up_count - went_down_count);
     Ok(())
 }
