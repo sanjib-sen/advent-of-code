@@ -15,9 +15,27 @@ fn main() -> miette::Result<()> {
 
     let file = include_str!("../../input1.txt");
     let input = process(file).context("process part 1")?.trim().to_string();
-    let total_floors: i16 = input.len().try_into().unwrap();
-    let went_up_count: i16 = input.matches("(").count().try_into().unwrap();
-    let went_down_count = total_floors - went_up_count;
-    println!("{}", went_up_count - went_down_count);
+    let mut sum_till_now = 0;
+    input.lines().enumerate().for_each(|line| {
+        sum_till_now += get_number(line.1);
+    });
+    println!("{}", sum_till_now);
     Ok(())
+}
+
+fn get_number(line: &str) -> i32 {
+    let mut digits: [i32; 2] = [-1, -1];
+    for c in line.chars() {
+        if c.is_digit(10) {
+            digits[0] = c.to_digit(10).unwrap() as i32;
+            break;
+        }
+    }
+    for c in line.chars().rev() {
+        if c.is_digit(10) {
+            digits[1] = c.to_digit(10).unwrap() as i32;
+            break;
+        }
+    }
+    return digits[0] * 10 + digits[1];
 }
